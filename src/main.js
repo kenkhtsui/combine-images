@@ -152,25 +152,7 @@ const createFiles = async edition => {
     const timeStamp = new Date()
     let formattedTime = moment(timeStamp).format("MMDD_hhmmss")
     count++
-    // await layers.forEach(async (layer) => {
-    //   const element = await drawLayer(layer, i, timeStamp.getTime());
-    //   let rarity = element.rarity
-    //   switch (rarity) {
-    //     case 'original':
-    //       score += 0
-    //       break
-    //     case 'rare':
-    //       score += 1
-    //       break
-    //     case 'super rare':
-    //       score += 2
-    //       break
-    //   }
 
-    //   formattedObj.id = count
-    //   formattedObj[layer.name] = element.name
-    //   console.log(`this is the ${i} times in the for loop`)
-    // });
     for (let j = 0; j < layers.length; j++) {
       const element = await drawLayer(layers[j], i, formattedTime)
       let rarity = element.rarity
@@ -240,7 +222,7 @@ const createFiles = async edition => {
     const csv = new ObjectsToCsv(finalArray);
 
     // Save to file:
-    await csv.toDisk('./build/test.csv', { append: true });
+    await csv.toDisk('./build/summary.csv', { append: true });
 
     // Return the CSV file as string:
     console.log(await csv.toString());
