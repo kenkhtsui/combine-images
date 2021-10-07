@@ -166,6 +166,12 @@ const createFiles = async edition => {
         case 'super rare':
           score += 2
           break
+        case 'super super rare':
+          score += 3
+          break
+        case 'ultra rare':
+          score += 4
+          break
       }
 
 
@@ -173,23 +179,13 @@ const createFiles = async edition => {
       formattedObj.id = count
       formattedObj.fileName = `${i}_${formattedTime}.png`
       formattedObj[layers[j].name] = element.name
+      formattedObj[`${layers[j].name} - rarity`] = element.rarity
       console.log(`this is the ${i} times in the for loop`)
     }
 
-    let averageScore = Math.floor(score / layers.length)
-    let averageRarity = ''
-    switch (averageScore) {
-      case 0:
-        averageRarity = 'Normal'
-        break
-      case 1:
-        averageRarity = 'Rare'
-        break
-      case 2:
-        averageRarity = 'Super Rare'
-        break
-    }
-    formattedObj.rarity = averageRarity
+
+
+    formattedObj.rarity = score
     formattedObj.createdTime = moment(timeStamp).format('MM/DD  hh:mm:ss')
     console.log(formattedObj)
 

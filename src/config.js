@@ -17,6 +17,8 @@ const rarity = [
     { key: "", val: "original" },
     { key: "_r", val: "rare" },
     { key: "_sr", val: "super rare" },
+    { key: "_ssr", val: "super super rare" },
+    { key: "_ur", val: "ultra rare" },
 ];
 
 const defaultEdition = 5;
